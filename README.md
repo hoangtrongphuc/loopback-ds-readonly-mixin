@@ -20,7 +20,7 @@ INSTALL
 =============
 
 ```bash
-npm install --save loopback-ds-readonly-mixin
+npm install --save loopback-readonly-mixin
 ```
 
 MIXINSOURCES
