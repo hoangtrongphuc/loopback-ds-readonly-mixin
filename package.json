@@ -1,8 +1,8 @@
 {
   "name": "loopback-readonly-mixin",
   "description": "A mixin to enable loopback Model properties to be marked as readonly.",
-  "version": "1.0.3",
-  "main": "./index.js",
+  "version": "1.0.4",
+  "main": "index.js",
   "author": "dr.hoangphuc@gmail.com",
   "contributors": [
     "Bram Borggreve @beeman",
