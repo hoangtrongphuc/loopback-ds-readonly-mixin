@@ -62,10 +62,32 @@ your model config.
       }
     },
     "mixins": {
-      "ReadOnly" : true
+      "ReadOnly" : {
+        "only": ["name"]
+      }
     }
   }
 ```
+
+```json
+  {
+    "name": "Widget",
+    "properties": {
+      "name": {
+        "type": "string",
+      },
+      "title": {
+        "type": "string",
+      }
+    },
+    "mixins": {
+      "ReadOnly" : {
+        "except": ["name"] // title is read-only
+      }
+    }
+  }
+```  
+
 
 Attempting to update a ReadOnly model will reult in a 403 error.
 
@@ -93,8 +115,7 @@ In this example we mark the `status` and `role` fields as readonly.
     },
     "mixins": {
       "ReadOnly" : {
-        "status" : true,
-        "role" : true
+        "except": ["name"]
       }
     }
   }
