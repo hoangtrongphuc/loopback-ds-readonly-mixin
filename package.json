@@ -23,10 +23,6 @@
     "url": "https://github.com/hoangtrongphuc/loopback-readonly-mixin/issues"
   },
   "homepage": "https://github.com/hoangtrongphuc/loopback-readonly-mixin",
-  "files": [
-    "lib",
-    "test"
-  ],
   "scripts": {
     "lint": "jscs lib && jshint lib",
     "test": "nyc mocha -R spec --timeout 10000 test",
