@@ -1,6 +1,13 @@
 var debug = require('debug')('loopback-ds-readonly-mixin');
 
 module.exports = function(Model, options) {
+  Model.on('attached', function() {
+    ReadOnly(Model, options)
+  });
+};
+
+function ReadOnly(Model, options) {
+  options = options || {};
   'use strict';
 
   debug('ReadOnly mixin for Model %s', Model.modelName);
@@ -39,4 +46,4 @@ module.exports = function(Model, options) {
   Model.beforeRemote('updateAll', function(ctx, modelInstance, next) {
     Model.stripReadOnlyProperties(ctx, modelInstance, next);
   });
-};
+}

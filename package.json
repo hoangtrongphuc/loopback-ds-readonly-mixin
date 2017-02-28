@@ -1,46 +1,66 @@
 {
-  "name": "loopback-ds-readonly-mixin",
-  "description": "A mixin to enable loopback Model properties to be marked as readonly.",
-  "version": "1.0.1",
-  "main": "./lib/index.js",
-  "author": "Tom Kirkpatrick @mrfelton",
-  "contributors": [
-    "Bram Borggreve @beeman",
-    "Matteo Padovano @mrbatista"
+  "_args": [
+    [
+      {
+        "raw": "loopback-ds-readonly-mixin@^1.0.1",
+        "scope": null,
+        "escapedName": "loopback-ds-readonly-mixin",
+        "name": "loopback-ds-readonly-mixin",
+        "rawSpec": "^1.0.1",
+        "spec": ">=1.0.1 <2.0.0",
+        "type": "range"
+      },
+      "G:\\SCTV\\tvHub"
+    ]
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/fullcube/loopback-ds-readonly-mixin.git"
+  "_from": "loopback-ds-readonly-mixin@>=1.0.1 <2.0.0",
+  "_id": "loopback-ds-readonly-mixin@1.0.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/loopback-ds-readonly-mixin",
+  "_nodeVersion": "5.0.0",
+  "_npmUser": {
+    "name": "mrfelton",
+    "email": "tkirkpatrick@fullcube.com"
   },
-  "keywords": [
-    "loopback",
-    "strongloop",
-    "mixin"
+  "_npmVersion": "3.3.10",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "loopback-ds-readonly-mixin@^1.0.1",
+    "scope": null,
+    "escapedName": "loopback-ds-readonly-mixin",
+    "name": "loopback-ds-readonly-mixin",
+    "rawSpec": "^1.0.1",
+    "spec": ">=1.0.1 <2.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
   ],
-  "license": "MIT",
+  "_resolved": "https://registry.npmjs.org/loopback-ds-readonly-mixin/-/loopback-ds-readonly-mixin-1.0.1.tgz",
+  "_shasum": "81b7aa8c80ceafa0335c2dcdb7a61e5ebd507c90",
+  "_shrinkwrap": null,
+  "_spec": "loopback-ds-readonly-mixin@^1.0.1",
+  "_where": "G:\\SCTV\\tvHub",
+  "author": {
+    "name": "Tom Kirkpatrick @mrfelton"
+  },
   "bugs": {
     "url": "https://github.com/fullcube/loopback-ds-readonly-mixin/issues"
   },
-  "homepage": "https://github.com/fullcube/loopback-ds-readonly-mixin",
-  "files": [
-    "lib",
-    "test"
+  "contributors": [
+    {
+      "name": "Bram Borggreve @beeman"
+    },
+    {
+      "name": "Matteo Padovano @mrbatista"
+    }
   ],
-  "scripts": {
-    "lint": "jscs lib && jshint lib",
-    "test": "nyc mocha -R spec --timeout 10000 test",
-    "test:watch": "npm run test -- -w",
-    "pretest": "npm run lint",
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "outdated": "npm outdated --depth=0"
-  },
   "dependencies": {
     "debug": "2.x",
     "depd": "^1.1.0"
   },
-  "peerDependencies": {
-    "loopback-datasource-juggler": ">=2.18.1"
-  },
+  "description": "A mixin to enable loopback Model properties to be marked as readonly.",
   "devDependencies": {
     "bluebird": "latest",
     "chai": "latest",
@@ -53,5 +73,52 @@
     "loopback-testing": "1.2.0",
     "mocha": "latest",
     "nyc": "latest"
-  }
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "81b7aa8c80ceafa0335c2dcdb7a61e5ebd507c90",
+    "tarball": "https://registry.npmjs.org/loopback-ds-readonly-mixin/-/loopback-ds-readonly-mixin-1.0.1.tgz"
+  },
+  "files": [
+    "lib",
+    "test"
+  ],
+  "gitHead": "a4aaedeb64bff60cfb68bc1efcf38d956fd901de",
+  "homepage": "https://github.com/fullcube/loopback-ds-readonly-mixin",
+  "keywords": [
+    "loopback",
+    "strongloop",
+    "mixin"
+  ],
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "maintainers": [
+    {
+      "name": "mrfelton",
+      "email": "tkirkpatrick@fullcube.com"
+    },
+    {
+      "name": "beeman",
+      "email": "borggreve@gmail.com"
+    }
+  ],
+  "name": "loopback-ds-readonly-mixin",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "loopback-datasource-juggler": ">=2.18.1"
+  },
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fullcube/loopback-ds-readonly-mixin.git"
+  },
+  "scripts": {
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "lint": "jscs lib && jshint lib",
+    "outdated": "npm outdated --depth=0",
+    "pretest": "npm run lint",
+    "test": "nyc mocha -R spec --timeout 10000 test",
+    "test:watch": "npm run test -- -w"
+  },
+  "version": "1.0.1"
 }
