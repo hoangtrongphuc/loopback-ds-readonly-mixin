@@ -1,4 +1,5 @@
 var debug = require('debug')('loopback-readonly-mixin');
+var _ = require('lodash');
 
 module.exports = function(Model, options) {
   Model.on('attached', function() {
@@ -7,21 +8,24 @@ module.exports = function(Model, options) {
 };
 
 function ReadOnly(Model, options) {
-  options = options || {};
+  options = options || [];
   'use strict';
 
   debug('ReadOnly mixin for Model %s', Model.modelName);
+  var props = options.only;
+  if (options.except && options.except.length) {
+    props = _.difference(_.keys(Model.definition.properties), options.only);
+  }
 
   // Make sure emailVerified is not set by creation
-  Model.stripReadOnlyProperties = function(ctx, modelInstance, next) {
+  stripReadOnlyProperties = function(ctx, modelInstance, next) {
     var body = ctx.req.body;
     if (!body) {
       return next();
     }
-    var properties = (Object.keys(options).length) ? options : null;
-    if (properties) {
-      debug('Creating %s : Read only properties are %j', Model.modelName, properties);
-      Object.keys(properties).forEach(function(key) {
+    if (props.length > 0) {
+      debug('Creating %s : Read only properties are %j', Model.modelName, props);
+      props.forEach(function(key) {
         debug('The \'%s\' property is read only, removing incoming data', key);
         delete body[key];
       });
@@ -35,15 +39,15 @@ function ReadOnly(Model, options) {
 
   // Make sure emailVerified is not set by creation
   Model.beforeRemote('create', function(ctx, modelInstance, next) {
-    Model.stripReadOnlyProperties(ctx, modelInstance, next);
+    stripReadOnlyProperties(ctx, modelInstance, next);
   });
   Model.beforeRemote('upsert', function(ctx, modelInstance, next) {
-    Model.stripReadOnlyProperties(ctx, modelInstance, next);
+    stripReadOnlyProperties(ctx, modelInstance, next);
   });
   Model.beforeRemote('prototype.updateAttributes', function(ctx, modelInstance, next) {
-    Model.stripReadOnlyProperties(ctx, modelInstance, next);
+    stripReadOnlyProperties(ctx, modelInstance, next);
   });
   Model.beforeRemote('updateAll', function(ctx, modelInstance, next) {
-    Model.stripReadOnlyProperties(ctx, modelInstance, next);
+    stripReadOnlyProperties(ctx, modelInstance, next);
   });
 }
