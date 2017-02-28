@@ -1,1 +1,1 @@
-module.exports = require('./readOnly.js');
+module.exports = require('./lib/readOnly.js');
