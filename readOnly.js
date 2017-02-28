@@ -17,7 +17,6 @@ function ReadOnly(Model, options) {
     props = _.difference(_.keys(Model.definition.properties), options.only);
   }
 
-  // Make sure emailVerified is not set by creation
   stripReadOnlyProperties = function(ctx, modelInstance, next) {
     var body = ctx.req.body;
     if (!body) {
@@ -36,8 +35,6 @@ function ReadOnly(Model, options) {
       next(err);
     }
   };
-
-  // Make sure emailVerified is not set by creation
   Model.beforeRemote('create', function(ctx, modelInstance, next) {
     stripReadOnlyProperties(ctx, modelInstance, next);
   });
