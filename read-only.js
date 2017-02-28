@@ -1,4 +1,4 @@
-var debug = require('debug')('loopback-ds-readonly-mixin');
+var debug = require('debug')('loopback-readonly-mixin');
 
 module.exports = function(Model, options) {
   Model.on('attached', function() {
